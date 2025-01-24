@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             height: 100vh;
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             color: #343a40;
@@ -21,6 +22,7 @@
             color: white;
             padding: 15px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            height: 100%;
         }
         #sidebar h2 {
             text-align: center;
@@ -109,6 +111,37 @@
         #logo img {
             width: 100px;
         }
+        #live-updates {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .live-box {
+            flex: 1;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+        }
+        .live-box h3 {
+            background-color: #0078D7;
+            color: white;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .live-box iframe {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 40px);
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -172,6 +205,20 @@
                 <li><a href="https://www.canva.com/features/ai" target="_blank">Canva AI</a>: AI-powered design and editing for social media and marketing.</li>
                 <li><a href="https://runwayml.com" target="_blank">Runway ML</a>: Tools for creative video editing using AI.</li>
             </ul>
+        </div>
+        <div id="live-updates">
+            <div class="live-box" id="box1">
+                <h3>Latest AI Trends</h3>
+                <iframe src="https://example-ai-trends.com" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+            <div class="live-box" id="box2">
+                <h3>Global AI News</h3>
+                <iframe src="https://example-ai-news.com" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+            <div class="live-box" id="box3">
+                <h3>AI Learnings</h3>
+                <iframe src="https://example-ai-learnings.com" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
 
