@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Navigator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        #sidebar {
+            width: 20%;
+            background-color: #f4f4f4;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        #sidebar h2 {
+            text-align: center;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        #sidebar ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #sidebar ul li:hover {
+            background-color: #dcdcdc;
+        }
+        #content {
+            width: 80%;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        #content h1 {
+            text-align: center;
+        }
+        #content .category {
+            margin-bottom: 20px;
+        }
+        #content .category h2 {
+            background-color: #0078D7;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #content .category ul {
+            list-style: none;
+            padding: 0;
+        }
+        #content .category ul li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>AI Navigator</h2>
+        <ul>
+            <li onclick="showCategory('productivity')">Productivity</li>
+            <li onclick="showCategory('generative-ai')">Generative AI</li>
+            <li onclick="showCategory('coding')">Coding</li>
+            <li onclick="showCategory('healthcare')">Healthcare</li>
+            <li onclick="showCategory('creative-tools')">Creative Tools</li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Welcome to AI Navigator</h1>
+        <div class="category" id="productivity">
+            <h2>Productivity</h2>
+            <ul>
+                <li><strong>Notion AI</strong>: Automates note-taking, task organization, and summaries.</li>
+                <li><strong>Grammarly</strong>: Advanced writing assistant for grammar and clarity checks.</li>
+            </ul>
+        </div>
+        <div class="category" id="generative-ai" style="display: none;">
+            <h2>Generative AI</h2>
+            <ul>
+                <li><strong>ChatGPT</strong>: AI chatbot for conversational and creative tasks.</li>
+                <li><strong>MidJourney</strong>: AI-powered image generation from text prompts.</li>
+            </ul>
+        </div>
+        <div class="category" id="coding" style="display: none;">
+            <h2>Coding</h2>
+            <ul>
+                <li><strong>GitHub Copilot</strong>: AI pair programmer for code suggestions.</li>
+                <li><strong>TabNine</strong>: AI-driven code completion tool for developers.</li>
+            </ul>
+        </div>
+        <div class="category" id="healthcare" style="display: none;">
+            <h2>Healthcare</h2>
+            <ul>
+                <li><strong>DeepMind Health</strong>: AI for diagnostics and patient management.</li>
+                <li><strong>IBM Watson Health</strong>: AI solutions for data-driven healthcare.</li>
+            </ul>
+        </div>
+        <div class="category" id="creative-tools" style="display: none;">
+            <h2>Creative Tools</h2>
+            <ul>
+                <li><strong>Canva AI</strong>: AI-powered design and editing for social media and marketing.</li>
+                <li><strong>Runway ML</strong>: Tools for creative video editing using AI.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showCategory(categoryId) {
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(category => {
+                if (category.id === categoryId) {
+                    category.style.display = 'block';
+                } else {
+                    category.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
