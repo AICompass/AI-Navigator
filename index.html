@@ -244,8 +244,17 @@
             document.getElementById('datetime').textContent = now.toLocaleDateString('en-US', options);
         }
 
+        function refreshIframes() {
+            document.querySelectorAll('.live-box iframe').forEach(iframe => {
+                iframe.src = iframe.src;
+            });
+        }
+
         setInterval(updateDateTime, 1000);
         updateDateTime();
+
+        // Refresh iframes every 30 seconds
+        setInterval(refreshIframes, 30000);
     </script>
 </body>
 </html>
