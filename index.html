@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Navigator</title>
+    <title>AI-Navigator</title> <!-- Updated title here -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
@@ -67,6 +67,20 @@
         }
     </style>
     <script>
+        // Function to filter tools by category
+        function filterByCategory(category) {
+            let tools = document.querySelectorAll(".tool");
+            tools.forEach(tool => {
+                let toolCategory = tool.getAttribute("data-category");
+                if (category === "all" || toolCategory === category) {
+                    tool.style.display = "block";
+                } else {
+                    tool.style.display = "none";
+                }
+            });
+        }
+
+        // Function to filter tools by search input
         function filterTools() {
             let filter = document.getElementById("searchBar").value.trim().toLowerCase();
             let tools = document.querySelectorAll(".tool");
@@ -84,26 +98,34 @@
         <div id="sidebar">
             <h2>Categories</h2>
             <ul>
-                <li>Chatbots</li>
-                <li>Image Generators</li>
-                <li>Other Tools</li>
+                <li><a href="#" onclick="filterByCategory('all')">All</a></li>
+                <li><a href="#" onclick="filterByCategory('chatbot')">Chatbots</a></li>
+                <li><a href="#" onclick="filterByCategory('image')">Image Generators</a></li>
+                <li><a href="#" onclick="filterByCategory('other')">Other Tools</a></li>
             </ul>
         </div>
         <div id="content">
             <h1>AI Tools Directory</h1>
-            <section class="tool">
+            <section class="tool" data-category="chatbot">
                 <h3>ChatGPT</h3>
                 <p><strong>Key Features:</strong> Conversational AI, multi-turn dialogue.</p>
                 <p><strong>Pros:</strong> Good contextual memory.</p>
                 <p><strong>Cons:</strong> Prone to hallucination.</p>
                 <a href="https://chat.openai.com">Try ChatGPT</a>
             </section>
-            <section class="tool">
+            <section class="tool" data-category="image">
                 <h3>MidJourney</h3>
                 <p><strong>Key Features:</strong> AI-powered image generation.</p>
                 <p><strong>Pros:</strong> High-quality artwork.</p>
                 <p><strong>Cons:</strong> Requires Discord.</p>
                 <a href="https://www.midjourney.com">Try MidJourney</a>
+            </section>
+            <section class="tool" data-category="other">
+                <h3>Example Tool</h3>
+                <p><strong>Key Features:</strong> Example feature.</p>
+                <p><strong>Pros:</strong> Example pro.</p>
+                <p><strong>Cons:</strong> Example con.</p>
+                <a href="#">Try Example Tool</a>
             </section>
         </div>
     </div>
